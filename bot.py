@@ -208,7 +208,7 @@ def main():
                 #print('написал id{}: "{}"'.format(event.user_id, event.text), end=' ')
                 jhg=vk.users.get(user_id=event.user_id)
                 name_user=jhg[0]['first_name']+'  '+jhg[0]['last_name']
-                print (" message from --  " + event.user_id)
+                print (" message from --  " + str(event.user_id))
                 #print(level2)
                 
                 if event.text==text_button21: ##в начало
