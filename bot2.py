@@ -194,8 +194,7 @@ def main():
         kb_m=keyboard
         days_plus=0 
         book_date=datetime.datetime.utcnow().isoformat()
-        admin_id=19132305
-        
+   
           
    
     
@@ -206,10 +205,10 @@ def main():
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
                 
                 #print('написал id{}: "{}"'.format(event.user_id, event.text), end=' ')
-                jhg=vk.users.get(user_id=event.user_id)
-                name_user=jhg[0]['first_name']+'  '+jhg[0]['last_name']
-                print ("user send message"+str(event.user_id))
-                #print(level2)
+                #jhg=vk.users.get(user_id=event.user_id)
+                #name_user=jhg[0]['first_name']+'  '+jhg[0]['last_name']
+                #print (name_user + " : " + event.text)
+                print("message from user --  " + str(event.user_id))
                 
                 if event.text==text_button21: ##в начало
                    
@@ -232,8 +231,11 @@ def main():
                     text=('Вы,  '+name_user + ", успешно забронировали и можете посмотреть на это в календаре https://calendar.google.com/calendar/b/1?cid=aHRib29raW5nZWtiQGdtYWlsLmNvbQ  "  )
                     booking_by_eventId(Ids_mass[level4.index(event.user_id)],name_user,event.text)
                     Ids_mass.pop(level4.index(event.user_id))
+                    
                     level4.remove(event.user_id)
                     kb_m=keyboard
+                    #vk.messages.send(user_id=19132305,random_id=get_random_id(),message=("Ура, забронили,   "+name_user))
+                    vk.messages.send(user_id=1295019,random_id=get_random_id(),message=("Ура, забронили,  "+name_user))
                 #третий уровень####################################################################time choose
                 elif event.user_id in level3:
 
@@ -412,17 +414,17 @@ def main():
        # vk.messages.send(user_id=event.user_id,random_id=get_random_id(),keyboard=keyboard.get_keyboard(),message="перезагружаюсь")
        
     
-#while True:
-#    try:
-#        print('Работаю')
-#        main()
-#    except:
-#        print('Ошибка, перезапускаюсь')
-#        continue
+while True:
+    try:
+        print('working...')
+        main()
+    except:
+        print('error, reload')
+        continue
 
 #delta=datetime.datetime.today()-datetime.date.today()
 #print(delta)
-#input("press anykey")
-main()
+input("press anykey")
+#main()
 
 #booking_by_eventId(dates[0],'user takoy to','нужно больше золота')
