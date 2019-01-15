@@ -208,7 +208,7 @@ def main():
                 #jhg=vk.users.get(user_id=event.user_id)
                 #name_user=jhg[0]['first_name']+'  '+jhg[0]['last_name']
                 #print (name_user + " : " + event.text)
-                print("message from user --  " + str(event.user_id))
+                print("HTBot -- message from user --  " + str(event.user_id))
                 
                 if event.text==text_button21: ##в начало
                    
@@ -234,8 +234,9 @@ def main():
                     
                     level4.remove(event.user_id)
                     kb_m=keyboard
-                    #vk.messages.send(user_id=19132305,random_id=get_random_id(),message=("Ура, забронили,   "+name_user))
-                    vk.messages.send(user_id=1295019,random_id=get_random_id(),message=("Ура, забронили,  "+name_user))
+                    vk.messages.send(user_id=19132305,random_id=get_random_id(),message=("Ура, забронировали ,   "+name_user))
+                    print("successfull booking")
+                    #vk.messages.send(user_id=1295019,random_id=get_random_id(),message=("Ура, забронили,  "+name_user))
                 #третий уровень####################################################################time choose
                 elif event.user_id in level3:
 
@@ -416,7 +417,7 @@ def main():
     
 while True:
     try:
-        print('working...')
+        print('working ht bot...')
         main()
     except:
         print('error, reload')
